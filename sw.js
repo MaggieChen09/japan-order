@@ -1,4 +1,4 @@
-const CACHE='tabishoku-autumn-v4';
+const CACHE='tabishoku-autumn-v5';
 const HOME=new URL('./index.html',self.location).href;
 self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await cache.add(new Request(HOME,{cache:'reload'}));await self.skipWaiting()})()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('tabishoku-autumn-')&&key!==CACHE)await caches.delete(key);await self.clients.claim()})()));
